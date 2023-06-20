@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Função</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+
+    <form>
+
+        <p>escolha o quanto quer elevar o numero</p>
+
+        <div>
+            <input type="radio" id="1" name="tipo" value='quadrado' checked>
+            <label for="1">Quadrado</label><br>
+            <input type="radio" id="2" name="tipo" value='cubo'>
+            <label for="2">Cubo</label>
+
+            <br>
+
+            <p>insira um numero:</p>
+
+            <input type="number" id="in">
+            <button id="bt">enviar</button>
+
+        </div>
+
+    </form>
+
+    <span id="demo"></span>
+
+    <script>
+        
+        let span = document.getElementById('demo')
+        let num = document.getElementById('in')
+        let bt = document.getElementById('bt')
+
+        bt.addEventListener('click', (e) => {
+            let x = document.querySelector('input[name="tipo"]:checked').value;
+
+            e.preventDefault()
+            switch (x) {
+                case 'quadrado': 
+                    span.innerHTML = quadrado(num.value)
+                    break
+                case 'cubo': 
+                    span.innerHTML = cubo(num.value)
+                
+            }
+        })
+            
+
+        
+        function quadrado(num) {
+            return num ** 2
+        }
+
+        function cubo(num) {
+            return num ** 3
+        }
+        
+    </script>
+
+    
+</body>
+
+</html>
